@@ -14,32 +14,26 @@ import java.time.LocalDateTime;
 public class UserVO {
     @Schema(description = "主键")
     private Integer id;
-
+    @ExcelProperty(value = "账号", index = 0)
     @Schema(description = "账号")
-    @ExcelProperty(value = "账号",index = 0)
     private String account;
-
     @Schema(description = "昵称")
-    @ExcelProperty(value = "昵称",index = 1)
+    @ExcelProperty(value = "昵称", index = 1)
     private String nickname;
-
     @Schema(description = "手机号")
-    @ExcelProperty(value = "手机号",index = 2)
+    @ExcelProperty(value = "手机号", index = 2)
     private String mobile;
-
     @Schema(description = "认证id")
-    @ExcelProperty(value = "认证id",index = 3)
+    @ExcelProperty(value = "认证id", index = 3)
     private String openId;
-
-    @Schema(description = "性别(0-男，1-女)")
-    @ExcelProperty(value = "性别",index = 4,converter = GenderConverter.class)
-    private String gender;
-
+    @Schema(description = "性别（0男1女）")
+    @ExcelProperty(value = "性别", index = 4, converter = GenderConverter.class)
+    private Integer gender;
     @Schema(description = "职业")
-    @ExcelProperty(value = "职业",index = 5)
+    @ExcelProperty(value = "职业", index = 5)
     private String profession;
-
     @Schema(description = "生日")
-    @ExcelProperty(value = "生日",index = 6)
+    @ExcelProperty(value = "生日", index = 6)
     private LocalDateTime birthday;
+
 }
