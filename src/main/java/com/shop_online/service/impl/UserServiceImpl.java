@@ -1,10 +1,17 @@
 package com.shop_online.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.shop_online.common.model.Query;
+import com.shop_online.common.result.PageResult;
+import com.shop_online.convert.UserConvert;
 import com.shop_online.entity.User;
 import com.shop_online.mapper.UserMapper;
 import com.shop_online.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.shop_online.vo.UserVO;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +23,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    @Override
+    public PageResult<UserVO> getPage(Query query) {
+        Page<User> page = new Page<User>();
+        Page<User> userPage = baseMapper.selectPage(page,null);
+        List<UserVO> list = UserConvert.INSTANCE.convertToUserVOList(userPage.getRecords());
+        return new PageResult<>(list,page.getTotal());
 
+    }
 }
