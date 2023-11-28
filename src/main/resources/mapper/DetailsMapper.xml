@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop_online.mapper.DetailsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop_online.entity.Details">
+        <id column="detail_id" property="detailId" />
+        <result column="user_addr" property="userAddr" />
+        <result column="user_tel" property="userTel" />
+        <result column="user_desc" property="userDesc" />
+        <result column="uid" property="uid" />
+    </resultMap>
+
+</mapper>
